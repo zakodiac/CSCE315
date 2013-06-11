@@ -60,7 +60,7 @@ multimap <string, double>extract_classes(string professor_querry){
 			course_number = trim(course_number);
 			d_student_count = atof(student_count.c_str());
 			//Only classes for requested professor are stored
-			if(professor_name == professor_querry){
+			if(professor_name == professor_querry){				
 				classes.insert( make_pair( course_number, d_student_count));
 			}
 		}
