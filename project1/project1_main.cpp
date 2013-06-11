@@ -101,7 +101,8 @@ double calculate_income(
 		++its
 	){		
 		total_students += its->second;
-		total_money += its->second * fees.find(its->first)->second;
+		if(fees.count(its->first) > 0)
+			total_money += its->second * fees.find(its->first)->second;
 	}	
 	cout 		<< "----------------------------------------------" << endl
 				<< "Professor: " << requested_professor 			<< endl
