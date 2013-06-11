@@ -50,7 +50,7 @@ multimap <string, double>extract_classes(string professor_querry){
 	ifstream myfile;
 	//Map Class Number/Name to student count
 	multimap <string, double> classes;
-	myfile.open("class_sched_list_2.txt");
+	myfile.open("class_sched_list.csv");
 	if (myfile.is_open()){
 		while ( myfile.good() ){
 			//File deliminated by csv
