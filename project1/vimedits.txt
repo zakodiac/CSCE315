@@ -1,0 +1,28 @@
+//Get only class lines
+//Get rid of time
+//get rid of whitespace and CRN
+//get rid of useless data
+//Remove trash from end of file
+//remove ( P ) tag
+//DEPT and Course number together pls
+//All we need to know is active students
+//and csv
+//TRASH CASES -- PROFS WHO CANT FOLLOW RULES
+//white space at eol and add last comma (Could have done in previous case)
+:g!/^\s\{3}\d\{5}/d
+:%s/\d\d:\d\d//
+:%s/^\s\{3}\(\d\{5}\)//g
+:%s/\d\+\s\a\a\s\+.*\s\+.*\a\+\s\+\s\(-\=\d\+\s\+-\=\d\+\s\+-\=\d\+\)/\1/g
+:%s/\d\d\/\d\d.*//g
+:%s/(P)
+:%s/\s\+\(\a\{4,}\)\s\+\(\d\{3}\)/\1\2/g
+:%s/\s\+-\=\d\+\s\+\(-\=\d\+\)\s\+-\=\d\+\s\+/ \1 /g
+:%s/\(\a\{4}\d\+\)\s\(-\=\d\+\)\s\(.*\)/\1,\2,\3
+:%s/\(\a\{4}\d\{3}\)\s\{3,}.*\(-\=\d\)\s\(.*\)/\1,\2,\3
+:%s/\s\{1,}$/,
+
+FOR csv
+:%s/\(.\{-}\)"$\(\d\+\),\(.*\)"/\1$\2\3/g
+:%s/^.\{-},.\{-},\(.\{-},\).*,/\1/g
+:%s/\s*$/,/g
+
